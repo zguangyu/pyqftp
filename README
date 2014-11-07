@@ -1,0 +1,8 @@
+pyqftp -- A FTP Client base on PyQt5
+
+Dependencies:
+PyQt5
+
+How to run:
+make
+python3 ftp.py
