@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 from ftplib import FTP
 from PyQt5.QtWidgets import QApplication, QDialog
