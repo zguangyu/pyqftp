@@ -2,14 +2,14 @@
 
 import sys
 from ftplib import FTP
-from PyQt5.QtWidgets import QApplication, QDialog
-from form_ui import Ui_Form
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from form_ui import Ui_MainWindow
 
 app = QApplication(sys.argv)
 
-class FtpDialog(QDialog, Ui_Form):
+class FtpWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        super(FtpDialog, self).__init__()
+        super(FtpWindow, self).__init__()
         self.setupUi(self)
         self.btnOpen.clicked.connect(self.connectFTP)
 
@@ -23,6 +23,6 @@ class FtpDialog(QDialog, Ui_Form):
             for f in flist:
                 self.lstFileList.addItem(f)
 
-window = FtpDialog()
+window = FtpWindow()
 window.show()
 sys.exit(app.exec_())
