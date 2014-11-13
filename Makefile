@@ -1,11 +1,4 @@
-PYUIC = pyuic5
-FORMS = form_ui.py
-
-%_ui.py : %.ui
-	$(PYUIC) $< > $@
-
-all: $(FORMS)
-
+all:
+	make -C pyqftp
 clean:
-	rm -rf __pycache__
-	rm *_ui.py
+	rm -rf __pycache__ && make -C pyqftp clean
