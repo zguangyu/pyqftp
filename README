@@ -5,4 +5,4 @@ PyQt5
 
 How to run:
 make
-python3 ftp.py
+./qftp.py
