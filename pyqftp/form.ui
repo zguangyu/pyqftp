@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>QFTP</string>
   </property>
   <widget class="QWidget" name="Form">
    <layout class="QVBoxLayout" name="verticalLayout">
