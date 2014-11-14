@@ -1,9 +1,11 @@
-import sys
 from ftplib import FTP
+from urllib.parse import urlparse
+
 from PyQt5.QtWidgets import QApplication, QMainWindow
+
 from pyqftp.form_ui import Ui_MainWindow
 from pyqftp.utils import url_check
-from urllib.parse import urlparse
+from pyqftp.login import LoginDialog
 
 class FtpWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -24,8 +26,10 @@ class FtpWindow(QMainWindow, Ui_MainWindow):
             port = res.port if res.port else 21
 
         if user is not None and passwd is None:
-            # TODO: pop up a box to receive password
-            pass
+            loginDialog = LoginDialog(self, user)
+            loginDialog.exec()
+            user = loginDialog.nameEdit.text()
+            passwd = loginDialog.passEdit.text()
 
         self.lstFileList.clear()
         self.lstFileList.addItem("Loading...")
