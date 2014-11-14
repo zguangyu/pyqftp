@@ -1,4 +1,4 @@
-pyqftp -- A FTP Client base on PyQt5
+pyqftp -- A FTP Client based on PyQt5
 
 Dependencies:
 PyQt5
