@@ -20,3 +20,5 @@ class LoginDialog(QDialog):
         self.setLayout(layout)
         self.setWindowTitle(QCoreApplication.translate("LoginDialog", "Login"))
 
+        if self.nameEdit.text() != None and len(self.nameEdit.text()) != 0:
+            self.passEdit.setFocus()
