@@ -9,7 +9,7 @@ from pyqftp.login import LoginDialog
 
 class FtpWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        super(FtpWindow, self).__init__()
+        super().__init__()
         self.setupUi(self)
         
         self.btnOpen.clicked.connect(self.connectFTP)
