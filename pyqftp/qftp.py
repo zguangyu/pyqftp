@@ -13,6 +13,7 @@ class FtpWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         
         self.btnOpen.clicked.connect(self.connectFTP)
+        self.txtFtpUrl.returnPressed.connect(self.btnOpen.click)
 
     def connectFTP(self):
         host = self.txtFtpUrl.text()
