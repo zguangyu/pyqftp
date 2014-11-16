@@ -11,6 +11,7 @@ class FtpWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(FtpWindow, self).__init__()
         self.setupUi(self)
+        
         self.btnOpen.clicked.connect(self.connectFTP)
 
     def connectFTP(self):
@@ -32,7 +33,7 @@ class FtpWindow(QMainWindow, Ui_MainWindow):
             passwd = loginDialog.passEdit.text()
 
         self.lstFileList.clear()
-        self.lstFileList.addItem("Loading...")
+        self.lstFileList.addItem("Loading...") # FIXME: Doesn't work
 
         ftp = FTP()
         ftp.connect(host, port)
