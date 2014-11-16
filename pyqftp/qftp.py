@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from pyqftp.form_ui import Ui_MainWindow
-from pyqftp.utils import url_check
+from pyqftp.utils import *
 from pyqftp.login import LoginDialog
 
 class FtpWindow(QMainWindow, Ui_MainWindow):
@@ -38,7 +38,9 @@ class FtpWindow(QMainWindow, Ui_MainWindow):
         ftp = FTP()
         ftp.connect(host, port)
         ftp.login(user, passwd)
-        flist = list(ftp.nlst())
+        flist = []
+        ftp.retrlines('LIST', flist.append)
+        flist = parse_ftp(flist)
         self.lstFileList.clear()
         for f in flist:
-            self.lstFileList.addItem(f)
+            self.lstFileList.addItem(f.filename)
